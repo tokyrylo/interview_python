@@ -66,6 +66,51 @@ posts = Post.objects.select_related("author").prefetch_related("comments").all()
 ```
 Django зробить `JOIN` для `author` і виконає окремий запит для `comments`.
 
+***3. Використання `only()` та `defer()`***
+
+Якщо потрібно **отримати тільки певні поля**, варто уникати вибірки зайвих даних 
+
+```python
+User.objects.only("id", "username") # Завантаження лише  ці поля 
+User.objects.defer("big_text_field") # Відкладає завантаження валикого поля 
+```
+
+***4. Використання `values()` та `values_list()`***
+Замість вибірки об'єктів можна отримувати **лише необхідні дані** у вигляді словників або кортежів.
+
+```python 
+# Повертає список словників 
+User.objects.values("id", "username")
+
+# Повертає список кортежів 
+User.objects.values_list("id", "username", named=True)
+```
+
+**5. Використання `exists()` замість `count()`**
+Якщо потрібно перевірити,  чи є записи, `exists()` значно швидше, ніж `count()`
+
+```python 
+if User.objects.filter(email="test@example.com").exists():
+  print("User exists !")
+```
+**Не робіть так**: `if User.objects.filter(email="test@example.com").count() > 0:` - це повільно 
+
+***6. Використання `bulk_create()` та `bulk_update()`***
+Замість циклу `save()` для кожного об'єкта:
+
+```python 
+users = [User(username=f"user{i}") for i in range(1000)]
+User.objects.bulk_create(users) # Створює 100 записів одним запитами 
+```
+
+**ПОГАНО**
+
+```python 
+for user in users:
+  user.save() # 1000 окремих SQL-запитів (дуже повільно)
+```
+
+
 ***Висновок***
 
 - `select_related()` - для **ForeignKey**, робить **JOIN** (1 SQL-запит).
