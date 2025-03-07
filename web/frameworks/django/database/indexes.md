@@ -120,3 +120,21 @@ class Event(models.Model):
       BrinIndex(fields=["timestamp"]),
     ]
 ```
+ - **Добре працює на дуже великих таблицях із послідовними значеннями**
+
+**2.4 `Hash` Index**
+Призначений для швидкого **пошуку по рівності** (`=`)
+
+```python 
+from django.db.models import Index 
+
+
+class User(models.Model):
+  email = models.CharField(max_length=255, unique=True)
+
+  class Meta:
+    indexes = [
+      Index(fields=["email"], name="email_hash_idx", opclasses=["hash"]),
+    ]
+```
+ - **Швидкий `WHERE email = "test@example.com"`, але не підтримує `>` та `<`**.
