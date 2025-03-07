@@ -20,6 +20,26 @@
   - Після того, як запит потрапляє до представлення (**view**), `Django` генерує відповідь.
   - Потім відповідь також проходить через middleware, щоб додати заголовки, змінити її або виконати інші операції перед тим, як вона потрапить до клієнта.
 
+  - Ланцюг обов'язків у Django Middleware (це паттерн за яким працює в django):
+
+  Уявимо що у `settings.py` є такі `middleware`:
+   ```python 
+    MIDDLEWARE = [
+      "app.middleware.FirstMiddleware",
+      "app.middleware.SecondMiddleware",
+      "app.middleware.ThirdMiddleware",
+    ]
+    ```
+  **Обробка запиту (request)**:
+  1. `FirstMiddleware` -> передає запит далі 
+  2. `SecondMiddleware` -> передає запит далі 
+  3. `ThirdMiddleware` -> передає запит у `view`
+
+  **Обробка відповіді (response)**:
+  1. `ThirdMiddleware` -> обробляє відповідь і передає далі 
+  2. `SecondMiddleware` -> обробляє відповідь і передає далі
+  3. `FirstMiddleware` -> обробляє відповідь і повертає клієнту
+
 4. **Типи middleware**:
 
   - **Запит (Request) Middleware**: Це `middleware`, яке обробляє запит перед тим, як він потрапить до представлення.
