@@ -23,13 +23,14 @@
   - Ланцюг обов'язків у Django Middleware (це паттерн за яким працює в django):
 
   Уявимо що у `settings.py` є такі `middleware`:
-   ```python 
+   
+```python 
     MIDDLEWARE = [
       "app.middleware.FirstMiddleware",
       "app.middleware.SecondMiddleware",
       "app.middleware.ThirdMiddleware",
     ]
-    ```
+```
   **Обробка запиту (request)**:
   1. `FirstMiddleware` -> передає запит далі 
   2. `SecondMiddleware` -> передає запит далі 
