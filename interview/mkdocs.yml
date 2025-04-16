@@ -11,6 +11,19 @@ theme:
 nav:
   - Головна: index.md
   - Основне: main.md
+  - Python:
+      - Винятки: python/exceptions.md
+      - Типи:
+        - Основні: types/main.md
+        - list: types/list.md
+        - tuple: types/tuple.md
+        - set: types/set.md
+        - frozenset: types/frozenset.md
+        - dict: types/dict.md
+        - Змінні: types/mutable/main.md
+        - Незмінні: types/immutable/main.md
+      - Генератори: python/generators.md
+      - Ітератори: python/iterators.md
   - OOP:
       - Вступ: oop/main.md
       - Basic:
@@ -44,15 +57,7 @@ nav:
           - L: oop/solid/liskov.md
           - I: oop/solid/interface.md
           - D: oop/solid/dependency.md
-  - Типи:
-      - Основні: types/main.md
-      - list: types/list.md
-      - tuple: types/tuple.md
-      - set: types/set.md
-      - frozenset: types/frozenset.md
-      - dict: types/dict.md
-      - Змінні: types/mutable/main.md
-      - Незмінні: types/immutable/main.md
+
   - Веб:
       - Django:
           - Основне: web/frameworks/django/main.md
