@@ -1,0 +1,106 @@
+site_name: Python Interview Notes
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Головна: index.md
+  - Основне: main.md
+  - OOP:
+      - Вступ: oop/main.md
+      - Basic:
+          - Як це працює: oop/basic/how_it_work.md
+          - Як це влаштоване: oop/basic/how_it_works.md
+          - Під капотом: oop/basic/oop_under_the_hood.md
+      - Сравнение: oop/comparison.md
+      - Dunder методы: oop/dunder_methods.md
+      - Інкапсуляція: oop/incapsulation.md
+      - Перегрузка: oop/overloading.md
+      - Патерни:
+          - Поведінкові:
+              - Стратегія: oop/patterns/behaviral/strategy.md 
+              - Цепочка обов’язків: oop/patterns/behaviral/chain_of_resposibility.md
+              - Команда: oop/patterns/behaviral/command.md
+              - Інтерпретатор: oop/patterns/behaviral/interpreter.md
+              - Ітератор: oop/patterns/behaviral/iterator.md
+              - Посередник: oop/patterns/behaviral/mediator.md
+              - Знімок: oop/patterns/behaviral/memento.md
+          - Породжуючі:
+              - Абстрактна фабріка: oop/patterns/creational/abstract_factory.md
+              - Абстракний метод: oop/patterns/creational/abstract_method.md
+              - Будівник: oop/patterns/creational/builder.md
+              - Фабрічний метод: oop/patterns/creational/factory_method.md
+              - Прототип: oop/patterns/creational/prototype.md
+              - Сінглтон: oop/patterns/creational/singleton.md
+          - Структурні: oop/patterns/structural/main.md
+      - SOLID:
+          - S: oop/solid/single.md
+          - O: oop/solid/open.md
+          - L: oop/solid/liskov.md
+          - I: oop/solid/interface.md
+          - D: oop/solid/dependency.md
+  - Типи:
+      - Основні: types/main.md
+      - list: types/list.md
+      - tuple: types/tuple.md
+      - set: types/set.md
+      - frozenset: types/frozenset.md
+      - dict: types/dict.md
+      - Змінні: types/mutable/main.md
+      - Незмінні: types/immutable/main.md
+  - Веб:
+      - Django:
+          - Основне: web/frameworks/django/main.md
+          - Аутентифікація: web/frameworks/django/authentication/main.md
+          - Кешування: web/frameworks/django/caching.md
+          - Middleware: web/frameworks/django/middleware.md
+          - Signals: web/frameworks/django/signals.md
+          - Forms: web/frameworks/django/forms/main.md
+          - URL: web/frameworks/django/urls.md
+          - Mixin: web/frameworks/django/mixin.md
+          - Tests: web/frameworks/django/tests/main.md
+          - Views:
+              - Основне: web/frameworks/django/views/views.md
+              - CBV:
+                  - dispatch: web/frameworks/django/views/cbv/dispath.md
+                  - form_valid: web/frameworks/django/views/cbv/form_valid.md
+                  - get_context_data: web/frameworks/django/views/cbv/get_context_data.md
+                  - get_object: web/frameworks/django/views/cbv/get_object.md
+                  - get_queryset: web/frameworks/django/views/cbv/get_queryset.md
+                  - get_success_url: web/frameworks/django/views/cbv/get_success_url.md
+          - Database:
+              - aggregate: web/frameworks/django/database/aggregate.md
+              - indexes: web/frameworks/django/database/indexes.md
+              - logical_operations: web/frameworks/django/database/logical_operations.md
+              - managers: web/frameworks/django/database/managers.md
+              - meta: web/frameworks/django/database/meta.md
+              - migrations: web/frameworks/django/database/migrations.md
+              - optimizations: web/frameworks/django/database/optimizations.md
+              - querysets: web/frameworks/django/database/querysets.md
+              - relationships: web/frameworks/django/database/relationships.md
+              - transaction: web/frameworks/django/database/transaction.md
+      - FastAPI:
+          - Основне: web/frameworks/fastapi/main.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tabbed
+
+plugins:
+  - search
